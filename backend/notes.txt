@@ -1,3 +1,7 @@
+# Dependecies
+npm install -g sequelize-cli
+npm install mysql2 -g
+
 # Create Models
 sequelize model:create --name User --attributes first_name:string,last_name:string,bio:text
 

@@ -1,33 +1,32 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Users', {
+    await queryInterface.createTable('Countries', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
-      first_name: {
+      code: {
         type: Sequelize.STRING
       },
-      last_name: {
+      name: {
         type: Sequelize.STRING
       },
-      bio: {
-        type: Sequelize.TEXT
-      },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE
       }
     })
+    .then(() => queryInterface.addIndex('Countries', ['code']))
+    .then(() => queryInterface.addIndex('Countries', ['name']))
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('Countries');
   }
 };
