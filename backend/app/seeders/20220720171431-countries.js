@@ -1,8 +1,5 @@
 'use strict';
 
-'use strict';
-
-const faker = require('faker');
 const fs = require('fs');
 
 let json_countries = fs.readFileSync('storages/json/countries.json');

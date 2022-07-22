@@ -8,8 +8,14 @@ sequelize model:create --name User --attributes first_name:string,last_name:stri
 # Creare New Migration
 sequelize migration:create --name add-email-to-user
 
+# Migrate Model
+sequelize db:migrate
+
 # Create Seed
 sequelize seed:create --name my-seed-file
 
-# Running Seed Data 
+# Running Seed Specific
+sequelize db:seed --seed my_seeder_file.js => example : sequelize db:seed --seed 20220721140419-app-seed.js
+
+# Running Seed All Data 
 sequelize db:seed:all
